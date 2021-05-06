@@ -4,21 +4,21 @@
 using namespace std;
 
 
-    void UserData::setUserID(int newID){
+void UserData::setUserID(int newID) {
     UserID=newID;
-    }
-    void UserData::setUserName(string newName){
+}
+void UserData::setUserName(string newName) {
     UserName=newName;
-    }
-    void UserData::setUserPassword(string newPassword){
+}
+void UserData::setUserPassword(string newPassword) {
     UserPassword=newPassword;
-    }
-        int UserData::getUserID(){
+}
+int UserData::getUserID() {
     return UserID;
-    }
-    string UserData::getUserName(){
+}
+string UserData::getUserName() {
     return UserName;
-    }
-    string UserData::getUserPassword(){
+}
+string UserData::getUserPassword() {
     return UserPassword;
-    }
+}

@@ -9,11 +9,11 @@ class UserData {
     string UserPassword;
 
 public:
-    void setUserID(int newID);
+    void setUserID(int newID);                  // set of setters
     void setUserName(string newName);
     void setUserPassword(string newPassword);
 
-    int getUserID();
+    int getUserID();                            // set of getters
     string getUserName();
     string getUserPassword();
 };

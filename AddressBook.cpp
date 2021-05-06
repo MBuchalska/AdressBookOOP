@@ -1,38 +1,57 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "AddressBook.h"
 
 using namespace std;
 
+AddressBook::AddressBook() {
+    UserFileName="Uzytkownicy.txt.";
+}
 
-void AddressBook::UserRegister() {   //zrobic na ladnie
+void AddressBook::UserRegister() {
     fstream uzytkownicy;
-    string DaneDoZapisu="";
+    string DataInOneLine="";
+    int ID;
+    string TempString="";
+
+    numberOfUsers=users.size();
 
     system("cls");
     cout << "Rejestracja nowego uzytkownika" << endl;
     cout << "Podaj dane" << endl;
 
-    USER.UserID=numberOfUsers+1;
-    DaneDoZapisu=to_string(USER.UserID);
-    DaneDoZapisu+="|";
+    ID=numberOfUsers+1;
+    USER.setUserID(ID);
+    int x=USER.getUserID();
+    DataInOneLine=to_string(x);
+    DataInOneLine+="|";
 
     cout << "Podaj nazwe uzytkownika: ";
-    cin >> USER.UserName;
-    DaneDoZapisu+=USER.UserName+"|";
+    cin >> TempString;
+    USER.setUserName(TempString);
+    DataInOneLine+=USER.getUserName()+"|";
 
     cout << "Podaj haslo do konta: ";
-    cin >> USER.UserPassword;
-    DaneDoZapisu+=USER.UserPassword+"|";
+    cin >> TempString;
+    USER.setUserPassword(TempString);
+    DataInOneLine+=USER.getUserPassword()+"|";
 
     users.push_back(USER);
 
-    uzytkownicy.open("Uzytkownicy.txt.",ios::out|ios::app);
-    uzytkownicy<<DaneDoZapisu<<endl;
+    uzytkownicy.open(UserFileName,ios::out|ios::app);
+    uzytkownicy<<DataInOneLine<<endl;
     uzytkownicy.close();
 
     cout<<endl;
     cout<<"Dane uzytkownika zapisane." << endl;
     system("pause");
+}
 
+void AddressBook::PrintAllUsers() {
+    for (int i=0; i<users.size(); i++) {
+        cout << "ID: " << users[i].getUserID() << endl;
+        cout << "Nazwa uzytkownika: " << users[i].getUserName() << endl;
+        cout << "Haslo: " << users[i].getUserPassword() << endl;
+    }
 }

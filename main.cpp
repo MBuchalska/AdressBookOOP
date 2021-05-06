@@ -5,6 +5,10 @@ using namespace std;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    AddressBook book;
+    book.UserRegister();
+    book.UserRegister();
+    book.PrintAllUsers();
+
     return 0;
 }

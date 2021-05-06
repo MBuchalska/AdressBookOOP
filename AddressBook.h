@@ -7,11 +7,13 @@ using namespace std;
 class AddressBook {
 int numberOfUsers;
 int TempUserID;
+string UserFileName;
 
-vector <UserData> users;  //operating vector
-UserData USER;          // for single user data
+vector <UserData> users;    //operating vector with users
+UserData USER;              // for single user data
 
 public:
-void UserRegister();     // registration
-
+AddressBook();              // constructor with user file name
+void UserRegister();        // registration of new user
+void PrintAllUsers();       // shows all users on the screen
 };
