@@ -1,4 +1,6 @@
 #include <iostream>
+#ifndef USERDATA_h
+#define USERDATA_h
 
 
 using namespace std;
@@ -17,3 +19,5 @@ public:
     string getUserName();
     string getUserPassword();
 };
+
+#endif // USERDATA_h
