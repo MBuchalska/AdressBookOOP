@@ -46,3 +46,7 @@ void UserManager::UserRegister() {
         cout << "Haslo: " << users[i].getUserPassword() << endl;
     }
 }
+
+void UserManager::DownloadUsersFromFile(){
+users=file.DownloadUsersFromFile();
+}

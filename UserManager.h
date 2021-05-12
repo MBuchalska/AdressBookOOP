@@ -11,7 +11,7 @@ using namespace std;
 
 class UserManager {
     int numberOfUsers;
-    int TempUserID;             //jeszcze nie u�ywany, ale b�dzie przy logowaniu
+    int TempUserID;             //jeszcze nie u¿ywany, ale bêdzie przy logowaniu, zmienić na zwę
     vector <UserData> users;    //operating vector with users
     UserData USER;              //for single user data
     FileManager file;           //file with users
@@ -19,6 +19,8 @@ class UserManager {
 public:
     void UserRegister();        // registration of new user
     void PrintAllUsers();       // shows all users on the screen
+    void DownloadUsersFromFile(); //downloads users from file to vector
+    UserManager(string UserFileName):file(UserFileName){};  //refers to const userfilename
 };
 
 

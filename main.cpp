@@ -5,7 +5,8 @@ using namespace std;
 
 int main()
 {
-    AddressBook book;
+    AddressBook book("Uzytkownicy.txt");
+    book.PrintAllUsers();
     book.UserRegister();
     book.UserRegister();
     book.PrintAllUsers();
