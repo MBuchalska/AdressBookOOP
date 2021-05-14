@@ -14,3 +14,8 @@ user.UserRegister();
 void AddressBook::PrintAllUsers(){
 user.PrintAllUsers();
 }
+
+void AddressBook::LoginUser(){
+user.LoginUser();
+system("pause");
+}

@@ -7,9 +7,10 @@ int main()
 {
     AddressBook book("Uzytkownicy.txt");
     book.PrintAllUsers();
-    book.UserRegister();
-    book.UserRegister();
-    book.PrintAllUsers();
+   // book.UserRegister();
+   // book.UserRegister();
+  //  book.PrintAllUsers();
+    book.LoginUser();
 
     return 0;
 }
