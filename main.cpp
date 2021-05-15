@@ -3,15 +3,16 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
     AddressBook book("Uzytkownicy.txt");
     book.PrintAllUsers();
-   // book.UserRegister();
-   // book.UserRegister();
+    // book.UserRegister();
+    // book.UserRegister();
     book.LoginUser();
     book.ChangeUserPassword();
     book.PrintAllUsers();
+    book.LogoutUser();
+
 
     return 0;
 }

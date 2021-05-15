@@ -11,7 +11,6 @@ class Auxiliary{
 
 public:
     string UserDataInOneLine(UserData USER);
-
 };
 
 #endif // AUXILIARY_h

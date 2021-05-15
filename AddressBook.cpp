@@ -23,3 +23,9 @@ system("pause");
 void AddressBook::ChangeUserPassword(){
 user.ChangeUserPassword();
 }
+
+void AddressBook::LogoutUser(){
+user.~UserManager();
+cout << "Uzytkownik zostal wylogowany. Dziekujemy za skorzystanie z programu"<<endl;
+system("pause");
+}

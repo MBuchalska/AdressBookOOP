@@ -130,3 +130,7 @@ void UserManager::ChangeUserPassword() {
         system("pause");
     }
 }
+
+UserManager::~UserManager(){
+LoggedUserID=0;
+}

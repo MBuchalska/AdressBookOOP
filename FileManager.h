@@ -12,7 +12,7 @@ class FileManager{
 const string UserFileName;
 fstream uzytkownicy;
 
-UserData AddUserDataToVector(string line);
+UserData AddUserDataToVector(string line);          //downloads single user to UserData format
 
 public:
 FileManager();

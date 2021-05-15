@@ -19,6 +19,7 @@ class UserManager {
 public:
     UserManager(string UserFileName):file(UserFileName) {}; //refers to const user filename
     UserManager();              // constructor with initial declaration of logged user ID
+    ~UserManager();             // destructor; logging user out
     void UserRegister();        // registration of new user
     void PrintAllUsers();       // shows all users on the screen
     void DownloadUsersFromFile(); //downloads users from file to vector
