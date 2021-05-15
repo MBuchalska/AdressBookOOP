@@ -9,8 +9,9 @@ int main()
     book.PrintAllUsers();
    // book.UserRegister();
    // book.UserRegister();
-  //  book.PrintAllUsers();
     book.LoginUser();
+    book.ChangeUserPassword();
+    book.PrintAllUsers();
 
     return 0;
 }

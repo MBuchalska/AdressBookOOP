@@ -19,6 +19,7 @@ FileManager();
 FileManager(string USERFILENAME):UserFileName(USERFILENAME){};          //constructor with const UserFileName
 void addUserToFile(string line);          //saves user in txt file
 vector <UserData> DownloadUsersFromFile(); //adds users from file to vector
+void ClearUserFile();                        //clears a file with Users
 };
 
 #endif

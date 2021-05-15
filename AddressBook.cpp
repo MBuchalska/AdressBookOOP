@@ -19,3 +19,7 @@ void AddressBook::LoginUser(){
 user.LoginUser();
 system("pause");
 }
+
+void AddressBook::ChangeUserPassword(){
+user.ChangeUserPassword();
+}
