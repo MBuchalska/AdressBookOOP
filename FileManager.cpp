@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <string>
 #include "FileManager.h"
 #include "UserData.h"
 
@@ -49,4 +50,9 @@ UserData FileManager::AddUserDataToVector(string line){
     line.erase(0,pozycja+1);
 
     return User;
+}
+
+void FileManager::ClearUserFile(){
+    uzytkownicy.open(UserFileName,ios::out|ios::trunc);
+    uzytkownicy.close();
 }
