@@ -3,6 +3,7 @@
 #include <string>
 #include "AddressBook.h"
 #include "UserManager.h"
+#include "ContactManager.h"
 
 
 using namespace std;

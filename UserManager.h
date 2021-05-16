@@ -17,7 +17,8 @@ class UserManager {
     Auxiliary DataInLine;
 
 public:
-    UserManager(string UserFileName):file(UserFileName) {}; //refers to const user filename
+    UserManager(string UserFileName, string ContactFileName)//refers to const user and contact filename
+    :file(UserFileName, ContactFileName) {};
     UserManager();              // constructor with initial declaration of logged user ID
     ~UserManager();             // destructor; logging user out
     void UserRegister();        // registration of new user

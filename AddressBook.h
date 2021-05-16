@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "UserManager.h"
+#include "ContactManager.h"
 #ifndef ADDRESSBOOK_h
 #define ADDRESSBOOK_h
 
@@ -8,6 +9,7 @@ using namespace std;
 
 class AddressBook {
 UserManager user;
+//ContactManager contact;
 
 public:
 void UserRegister();        // registration of new user
@@ -16,8 +18,8 @@ void LoginUser();           // logging in the user
 void ChangeUserPassword();  // changes logged user's password
 void LogoutUser();
 
-AddressBook(string UserFileName)    // constructor that downloads users from the file
-:user(UserFileName)
+AddressBook(string UserFileName, string ContactFileName)    // constructor that downloads users from the file
+:user(UserFileName, ContactFileName)
 {
 user.DownloadUsersFromFile();
 }
