@@ -5,8 +5,7 @@
 
 
 UserManager::UserManager() {
-    LoggedUserID=0;
-}
+};
 
 void UserManager::UserRegister() {
     string DataInOneLine="";
@@ -134,3 +133,12 @@ void UserManager::ChangeUserPassword() {
 UserManager::~UserManager(){
 LoggedUserID=0;
 }
+
+void UserManager::setLoggedUserID(int newUserID){
+LoggedUserID=newUserID;
+}
+
+int UserManager::getLoggedUserID(){
+return LoggedUserID;
+}
+

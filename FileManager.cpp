@@ -56,3 +56,10 @@ void FileManager::ClearUserFile(){
     uzytkownicy.open(UserFileName,ios::out|ios::trunc);
     uzytkownicy.close();
 }
+
+void FileManager::addContactsToFile(string line){
+
+    znajomi.open("Adresaci.txt",ios::out|ios::app);
+    znajomi<<line<<endl;
+    znajomi.close();
+}

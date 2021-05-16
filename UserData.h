@@ -1,7 +1,6 @@
-#include <iostream>
 #ifndef USERDATA_h
 #define USERDATA_h
-
+#include <iostream>
 
 using namespace std;
 

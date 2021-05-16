@@ -3,8 +3,10 @@
 #include "UserData.h"
 #include "FileManager.h"
 #include "auxiliary.h"
+//#include "ContactManager.h"
 #ifndef USERMANAGER_h
 #define USERMANAGER_h
+
 
 using namespace std;
 
@@ -15,6 +17,7 @@ class UserManager {
     UserData USER;              //for single user data
     FileManager file;           //file with users
     Auxiliary DataInLine;
+   // ContactManager contact;
 
 public:
     UserManager(string UserFileName, string ContactFileName)//refers to const user and contact filename
@@ -26,6 +29,10 @@ public:
     void DownloadUsersFromFile(); //downloads users from file to vector
     int LoginUser();            // logging the user in
     void ChangeUserPassword();  // changes logged user's password
+    int getLoggedUserID();      // getter for logged user
+    void setLoggedUserID(int newUserID); //setter for initial user id
+
+
 };
 
 

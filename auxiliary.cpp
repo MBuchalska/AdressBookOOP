@@ -12,3 +12,4 @@ string Auxiliary::UserDataInOneLine(UserData USER) {
 
     return DataInOneLine;
 }
+
