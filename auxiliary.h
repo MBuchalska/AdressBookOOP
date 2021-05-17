@@ -13,7 +13,7 @@ class Auxiliary{
 
 public:
     string UserDataInOneLine(UserData USER);
-
+    string ContactDataInOneLine(ContactData contact, int OwnerID);
 };
 
 #endif // AUXILIARY_h

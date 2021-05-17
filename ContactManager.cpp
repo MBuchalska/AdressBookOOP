@@ -8,11 +8,11 @@
 void ContactManager::AddNewContact(int OwnerID){
 
 NumberOfContacts = contacts.size();
-        fstream znajomi;
+  //      fstream znajomi;
 
     string DaneDoZapisu="";
     string TempString="";
-    int ContID, UserID;
+    int ContID;
 
     system("cls");
     cout << "Dodawanie nowego adresata" << endl;
@@ -20,42 +20,42 @@ NumberOfContacts = contacts.size();
 
     ContID=NumberOfContacts+1;
     contact.setContactID(ContID);
-    ContID=contact.getContactID();
-    DaneDoZapisu=to_string(ContID);
-    DaneDoZapisu+="|";
+   // ContID=contact.getContactID();
+ // DaneDoZapisu=to_string(ContID);
+ //   DaneDoZapisu+="|";
 
-    DaneDoZapisu+=to_string(OwnerID);
-    DaneDoZapisu+="|";
+ //  DaneDoZapisu+=to_string(OwnerID);
+  //  DaneDoZapisu+="|";
 
     cout << "Imie: ";
     cin >> TempString;
     contact.setFirstName(TempString);
-    DaneDoZapisu+=contact.getFirstName()+"|";
+  //  DaneDoZapisu+=contact.getFirstName()+"|";
 
     cout << "Nazwisko: ";
     cin >> TempString;
     contact.setLastName(TempString);
-    DaneDoZapisu+=contact.getLastName()+"|";
+   // DaneDoZapisu+=contact.getLastName()+"|";
 
     cout << "Telefon: ";
     cin.sync();
     getline(cin,TempString);
     contact.setPhoneNumber(TempString);
-    DaneDoZapisu+=contact.getPhoneNumber()+"|";
+  //  DaneDoZapisu+=contact.getPhoneNumber()+"|";
 
     cout << "Mail: ";
     cin >> TempString;
     contact.setMail(TempString);
-    DaneDoZapisu+=contact.getMail()+"|";
+   // DaneDoZapisu+=contact.getMail()+"|";
 
     cin.sync();
     cout << "Adres: ";
     getline(cin,TempString);
     contact.setAddress(TempString);
-    DaneDoZapisu+=contact.getAddress()+"|";
+  //  DaneDoZapisu+=contact.getAddress()+"|";
 
     contacts.push_back(contact);
-   //Text.ContactDataInOneLine(contact);
+   DaneDoZapisu=Text.ContactDataInOneLine(contact, OwnerID);
    file.addContactsToFile(DaneDoZapisu);
 
     cout << "Osoba zostala dodana do bazy" << endl;

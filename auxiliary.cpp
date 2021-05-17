@@ -13,3 +13,21 @@ string Auxiliary::UserDataInOneLine(UserData USER) {
     return DataInOneLine;
 }
 
+string Auxiliary::ContactDataInOneLine(ContactData contact, int OwnerID) {
+    string DataInOneLine="";
+
+    int ContID=contact.getContactID();
+    DataInOneLine=to_string(ContID);
+    DataInOneLine+="|";
+
+    DataInOneLine+=to_string(OwnerID);
+    DataInOneLine+="|";
+
+    DataInOneLine+=contact.getFirstName()+"|";
+    DataInOneLine+=contact.getLastName()+"|";
+    DataInOneLine+=contact.getPhoneNumber()+"|";
+    DataInOneLine+=contact.getMail()+"|";
+    DataInOneLine+=contact.getAddress()+"|";
+
+    return DataInOneLine;
+}
