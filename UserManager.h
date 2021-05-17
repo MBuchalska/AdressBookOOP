@@ -3,6 +3,7 @@
 #include "UserData.h"
 #include "FileManager.h"
 #include "auxiliary.h"
+#include "ContactData.h"
 //#include "ContactManager.h"
 #ifndef USERMANAGER_h
 #define USERMANAGER_h
@@ -18,6 +19,7 @@ class UserManager {
     FileManager file;           //file with users
     Auxiliary DataInLine;
    // ContactManager contact;
+   vector <ContactData> contacts;
 
 public:
     UserManager(string UserFileName, string ContactFileName)//refers to const user and contact filename
