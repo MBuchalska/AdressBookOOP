@@ -59,7 +59,6 @@ void FileManager::ClearUserFile() {
 }
 
 void FileManager::addContactsToFile(string line) {
-
     znajomi.open("Adresaci.txt",ios::out|ios::app);
     znajomi<<line<<endl;
     znajomi.close();
@@ -72,7 +71,7 @@ vector <ContactData> FileManager::DownloadContactsFromFile(int LoggedUserID) {
     string line;
     int licznik=0;
 
-    znajomi.open("Adresaci.txt.",ios::in);
+    znajomi.open(ContactFileName,ios::in);
     while (getline(znajomi,line)) {       // odczytuje kolejne linie dopoki getline nie zwtoci falsz
         contact=file.AddContactsToVector(line);
         licznik++;

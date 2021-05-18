@@ -33,6 +33,7 @@ public:
     void ChangeUserPassword();  // changes logged user's password
     int getLoggedUserID();      // getter for logged user
     void setLoggedUserID(int newUserID); //setter for initial user id
+    vector <ContactData> getContacts();   //getter for contacts loaded from
 
 
 };

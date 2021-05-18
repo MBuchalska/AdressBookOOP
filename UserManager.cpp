@@ -81,6 +81,7 @@ int UserManager::LoginUser() {
                     LoggedUserID=USER.getUserID();
                     cout<< LoggedUserID << endl;  // temp
                     contacts=file.DownloadContactsFromFile(LoggedUserID);   //?????
+                    cout << "Wyswietlam dane wszystkich znajomych:" << endl;
                     return LoggedUserID;
 
                 } else {
@@ -143,3 +144,6 @@ int UserManager::getLoggedUserID(){
 return LoggedUserID;
 }
 
+ vector <ContactData> UserManager::getContacts(){
+ return contacts;
+ }

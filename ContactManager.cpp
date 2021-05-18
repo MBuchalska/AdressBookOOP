@@ -6,9 +6,7 @@
 
 
 void ContactManager::AddNewContact(int OwnerID){
-
 NumberOfContacts = contacts.size();
-  //      fstream znajomi;
 
     string DaneDoZapisu="";
     string TempString="";
@@ -20,41 +18,32 @@ NumberOfContacts = contacts.size();
 
     ContID=NumberOfContacts+1;
     contact.setContactID(ContID);
-   // ContID=contact.getContactID();
- // DaneDoZapisu=to_string(ContID);
- //   DaneDoZapisu+="|";
 
- //  DaneDoZapisu+=to_string(OwnerID);
-  //  DaneDoZapisu+="|";
+    contact.setOwnerID(OwnerID);
 
     cout << "Imie: ";
     cin >> TempString;
     contact.setFirstName(TempString);
-  //  DaneDoZapisu+=contact.getFirstName()+"|";
 
     cout << "Nazwisko: ";
     cin >> TempString;
     contact.setLastName(TempString);
-   // DaneDoZapisu+=contact.getLastName()+"|";
 
     cout << "Telefon: ";
     cin.sync();
     getline(cin,TempString);
     contact.setPhoneNumber(TempString);
-  //  DaneDoZapisu+=contact.getPhoneNumber()+"|";
 
     cout << "Mail: ";
     cin >> TempString;
     contact.setMail(TempString);
-   // DaneDoZapisu+=contact.getMail()+"|";
 
     cin.sync();
     cout << "Adres: ";
     getline(cin,TempString);
     contact.setAddress(TempString);
-  //  DaneDoZapisu+=contact.getAddress()+"|";
 
-    contacts.push_back(contact);
+    contacts.push_back(contact);            // dodaje do niew³œciwego wektora
    DaneDoZapisu=Text.ContactDataInOneLine(contact, OwnerID);
    file.addContactsToFile(DaneDoZapisu);
 
@@ -65,4 +54,22 @@ NumberOfContacts = contacts.size();
 
 ContactManager::ContactManager(){
 USER.getLoggedUserID();
+}
+
+void ContactManager::PrintAllContactsOfLoggedUser(vector<ContactData>& contactss){
+ system("cls");
+ NumberOfContacts=contactss.size();
+    cout << "Wyswietlam dane wszystkich znajomych:" << endl;
+    for (int i=0; i<NumberOfContacts; i++) {
+        cout<<"ID: "<< contactss[i].getContactID() <<endl;
+        cout<<"ID uzytnownika: "<< contactss[i].getOwnerID() <<endl; // TEMPORARY
+        cout<<"Imie: "<< contactss[i].getFirstName() <<endl;
+        cout<<"Nazwisko: "<< contactss[i].getLastName()<<endl;
+        cout<<"Telefon: "<< contactss[i].getPhoneNumber()<<endl;
+        cout<<"Mail: " << contactss[i].getMail()<<endl;
+        cout<<"Adres: " << contactss[i].getAddress()<<endl;
+        cout<<endl;
+    }
+    system("pause");
+
 }

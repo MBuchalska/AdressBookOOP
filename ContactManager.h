@@ -21,8 +21,9 @@ FileManager file;
 Auxiliary Text;
 
 public:
-void AddNewContact(int OwnerID);
+void AddNewContact(int OwnerID);        // adds new contact
 ContactManager();
+void PrintAllContactsOfLoggedUser(vector<ContactData>& contactss);  // prints all contacts on screen
 
 };
 

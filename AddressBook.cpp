@@ -33,12 +33,20 @@ void AddressBook::LogoutUser() {
 
 void AddressBook::AddNewContact() {
     if (user.getLoggedUserID()==0) {
+        cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby dodaæ adresata" << endl;
+        system("pause");
+    } else {
+    int ID=user.getLoggedUserID();
+    contact.AddNewContact(ID);
+    }
+}
+
+void AddressBook::PrintAllContactsOfLoggedUser() {
+    if (user.getLoggedUserID()==0) {
         cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
         system("pause");
     } else {
-        int ID;
-        ID=user.getLoggedUserID();
-        contact.AddNewContact(ID);
+        contacts=user.getContacts();
+        contact.PrintAllContactsOfLoggedUser(contacts);
     }
-
 }

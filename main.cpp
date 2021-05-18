@@ -9,14 +9,21 @@ int main() {
     AddressBook book("Uzytkownicy.txt", "Adresaci.txt");
     book.PrintAllUsers();
     // book.UserRegister();
-    // book.UserRegister();
+
+    book.PrintAllContactsOfLoggedUser();
+
     book.LoginUser();
+
+    book.PrintAllContactsOfLoggedUser();
     book.AddNewContact();
-   // book.ChangeUserPassword();
-    book.PrintAllUsers();
+   //book.ChangeUserPassword();
+    //book.PrintAllUsers();
+   // book.PrintAllContactsOfLoggedUser();
     book.LogoutUser();
-    book.LoginUser();
-    book.AddNewContact();
+
+    //book.LoginUser();
+    //book.AddNewContact();
+    //book.PrintAllContactsOfLoggedUser();
 
     return 0;
 }
