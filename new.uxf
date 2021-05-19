@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>128</x>
+      <y>48</y>
+      <w>320</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>AddressBook
+--
+-user; UserManager 
+-contact; ContactManager 
+-contacts; vector &lt;ContactData&gt;
+-file; FileManager
+-NumberOfContacts; int
+--
++AddressBook(string UserFileName, string ContactFileName);
++UserRegister; void
++PrintAllUsers(); void
++LoginUser(); void
++ChangeUserPassword();void
++LogoutUser(); void
++AddNewContact();void
++PrintAllContactsOfLoggedUser(); void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>848</x>
+      <y>112</y>
+      <w>152</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>UserData
+--
+-UserID: int
+-UserName: string
+-UserPassword: string
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>488</x>
+      <y>48</y>
+      <w>336</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>UserManager
+--
+-numberOfUsers; int
+-LoggedUserID; int
+-users;  vector &lt;UserData&gt;
+-USER; UserData 
+-file; FileManager 
+-DataInLine; Auxiliary 
+
+--
++UserRegister; void
++PrintAllUsers; void
++DownloadUsersFromFile; void
++LoginUser(); int
++UserManager(string UserFileName, string ContactFileName);
++UserManager();
++ChangeUserPassword();void
++~UserManager(); </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>128</x>
+      <y>424</y>
+      <w>352</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>FileManager
+--
+-UserFileName; const string
+-ContactFileName; const string
+-uzytkownicy;fstream
+-znajomi; fstream 
+--
++FileManager();
++FileManager(string USERFILENAME, string CONTACTFILENAME);
++addUserToFile(string line); void 
++DownloadUsersFromFile(); vector&lt;UserData&gt;
+-AddUserDataToVector(string line);UserData
++ClearUserFile();void
++FileManager::DownloadContactsFromFile(int LoggedUserID; vector &lt;ContactData&gt; 
+-AddContactsToVector(string line); ContactData
++HowManyContacts(); int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>488</x>
+      <y>528</y>
+      <w>344</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>Auxiliary
+--
+-USER; UserData 
+-contact; ContactData
+--
++UserDataInOneLine(UserData USER);string
++ContactDataInOneLine(ContactData contact, int OwnerID); string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>488</x>
+      <y>296</y>
+      <w>336</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>ContactManager
+--
+-contact; ContactData
+-contacts; vector&lt;ContactData&gt;
+-USER; UserManager 
+-NumberOfContacts; int
+-file; FileManager
+-Text; Auxiliary
+--
++ContactManager();
++AddNewContact(int OwnerID, vector&lt;ContactData&gt;&amp; contactss, int TotalNumberOfContacts); void
++PrintAllContactsOfLoggedUser(vector&lt;ContactData&gt;&amp; contactss); void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>848</x>
+      <y>296</y>
+      <w>168</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>ContactData
+--
+-ContactID: int
+-OwnerID: int
+-FirstName: string 
+-LastName: string
+-PhoneNumber: string 
+-Mail: string
+-Address: string
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
