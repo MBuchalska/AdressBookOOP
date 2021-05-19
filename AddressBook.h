@@ -2,6 +2,7 @@
 #include <vector>
 #include "UserManager.h"
 #include "ContactManager.h"
+#include "FileManager.h"
 #ifndef ADDRESSBOOK_h
 #define ADDRESSBOOK_h
 
@@ -11,6 +12,7 @@ class AddressBook {
 UserManager user;
 ContactManager contact;
 vector <ContactData> contacts;
+FileManager file;
 
 public:
 void UserRegister();        // registration of new user
@@ -18,7 +20,7 @@ void PrintAllUsers();       // shows all users on the screen; temporary
 void LoginUser();           // logging in the user
 void ChangeUserPassword();  // changes logged user's password
 void LogoutUser();
-void AddNewContact();       // adds new contact for logged user
+void AddNewContact();       // adds new contact for logged user, and downloads contacts
 void PrintAllContactsOfLoggedUser(); // shows all contacts of logged user
 
 

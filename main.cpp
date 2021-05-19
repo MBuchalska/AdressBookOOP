@@ -10,20 +10,19 @@ int main() {
     book.PrintAllUsers();
     // book.UserRegister();
 
-    book.PrintAllContactsOfLoggedUser();
-
     book.LoginUser();
 
     book.PrintAllContactsOfLoggedUser();
     book.AddNewContact();
    //book.ChangeUserPassword();
     //book.PrintAllUsers();
-   // book.PrintAllContactsOfLoggedUser();
+   book.PrintAllContactsOfLoggedUser();
     book.LogoutUser();
 
-    //book.LoginUser();
-    //book.AddNewContact();
-    //book.PrintAllContactsOfLoggedUser();
+    book.LoginUser();
+     book.PrintAllContactsOfLoggedUser();
+    book.AddNewContact();
+    book.PrintAllContactsOfLoggedUser();
 
     return 0;
 }

@@ -5,8 +5,8 @@
 #include "ContactData.h"
 
 
-void ContactManager::AddNewContact(int OwnerID){
-NumberOfContacts = contacts.size();
+void ContactManager::AddNewContact(int OwnerID, vector<ContactData>& contactss) {
+    NumberOfContacts = contacts.size();
 
     string DaneDoZapisu="";
     string TempString="";
@@ -43,22 +43,22 @@ NumberOfContacts = contacts.size();
     getline(cin,TempString);
     contact.setAddress(TempString);
 
-    contacts.push_back(contact);            // dodaje do niew³œciwego wektora
-   DaneDoZapisu=Text.ContactDataInOneLine(contact, OwnerID);
-   file.addContactsToFile(DaneDoZapisu);
+    contactss.push_back(contact);
+    DaneDoZapisu=Text.ContactDataInOneLine(contact, OwnerID);
+    file.addContactsToFile(DaneDoZapisu);
 
     cout << "Osoba zostala dodana do bazy" << endl;
     system("pause");
 
 }
 
-ContactManager::ContactManager(){
-USER.getLoggedUserID();
+ContactManager::ContactManager() {
+    USER.getLoggedUserID();
 }
 
-void ContactManager::PrintAllContactsOfLoggedUser(vector<ContactData>& contactss){
- system("cls");
- NumberOfContacts=contactss.size();
+void ContactManager::PrintAllContactsOfLoggedUser(vector<ContactData>& contactss) {
+    system("cls");
+    NumberOfContacts=contactss.size();
     cout << "Wyswietlam dane wszystkich znajomych:" << endl;
     for (int i=0; i<NumberOfContacts; i++) {
         cout<<"ID: "<< contactss[i].getContactID() <<endl;

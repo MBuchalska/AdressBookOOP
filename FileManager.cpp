@@ -71,7 +71,7 @@ vector <ContactData> FileManager::DownloadContactsFromFile(int LoggedUserID) {
     string line;
     int licznik=0;
 
-    znajomi.open(ContactFileName,ios::in);
+    znajomi.open("Adresaci.txt",ios::in);
     while (getline(znajomi,line)) {       // odczytuje kolejne linie dopoki getline nie zwtoci falsz
         contact=file.AddContactsToVector(line);
         licznik++;
