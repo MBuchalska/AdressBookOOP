@@ -13,6 +13,7 @@ UserManager user;
 ContactManager contact;
 vector <ContactData> contacts;
 FileManager file;
+int NumberOfContacts;
 
 public:
 void UserRegister();        // registration of new user
@@ -29,6 +30,7 @@ AddressBook(string UserFileName, string ContactFileName)    // constructor that 
 {
 user.DownloadUsersFromFile();
 user.setLoggedUserID(0);
+NumberOfContacts=file.HowManyContacts();
 }
 
 };

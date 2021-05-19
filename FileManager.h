@@ -26,6 +26,7 @@ vector <UserData> DownloadUsersFromFile(); //adds users from file to vector
 void ClearUserFile();                        //clears a file with Users
 void addContactsToFile(string line);        // adds Contacts to txt file
 vector <ContactData> DownloadContactsFromFile(int LoggedUserID); //downloads contacts from file
+int HowManyContacts();                  //checks how many contacts are in the file overall
 };
 
 #endif

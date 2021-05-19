@@ -84,7 +84,7 @@ vector <ContactData> FileManager::DownloadContactsFromFile(int LoggedUserID) {
     return contacts;
 }
 
-ContactData FileManager::AddContactsToVector(string line){
+ContactData FileManager::AddContactsToVector(string line) {
     ContactData Contact;
     int pozycja, ID;
     string TempString="";
@@ -127,4 +127,13 @@ ContactData FileManager::AddContactsToVector(string line){
     line.erase(0,pozycja+1);
 
     return Contact;
+}
+int FileManager::HowManyContacts() {
+    int licznik=0;
+    string line;
+    znajomi.open("Adresaci.txt",ios::in);
+    while (getline(znajomi,line)) licznik++;
+    znajomi.close();
+
+    return licznik;
 }

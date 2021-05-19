@@ -14,14 +14,13 @@ using namespace std;
 class ContactManager {
 ContactData contact;
 vector<ContactData> contacts;
-int TempUserID;
 UserManager USER;
 int NumberOfContacts;
 FileManager file;
 Auxiliary Text;
 
 public:
-void AddNewContact(int OwnerID, vector<ContactData>& contactss);        // adds new contact
+void AddNewContact(int OwnerID, vector<ContactData>& contactss, int TotalNumberOfContacts);        // adds new contact
 ContactManager();
 void PrintAllContactsOfLoggedUser(vector<ContactData>& contactss);  // prints all contacts on screen
 

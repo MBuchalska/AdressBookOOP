@@ -5,9 +5,7 @@
 #include "ContactData.h"
 
 
-void ContactManager::AddNewContact(int OwnerID, vector<ContactData>& contactss) {
-    NumberOfContacts = contacts.size();
-
+void ContactManager::AddNewContact(int OwnerID, vector<ContactData>& contactss, int TotalNumberOfContacts) {
     string DaneDoZapisu="";
     string TempString="";
     int ContID;
@@ -16,7 +14,7 @@ void ContactManager::AddNewContact(int OwnerID, vector<ContactData>& contactss) 
     cout << "Dodawanie nowego adresata" << endl;
     cout << "Podaj dane osoby" << endl;
 
-    ContID=NumberOfContacts+1;
+    ContID=TotalNumberOfContacts+1;
     contact.setContactID(ContID);
 
     contact.setOwnerID(OwnerID);
@@ -71,5 +69,4 @@ void ContactManager::PrintAllContactsOfLoggedUser(vector<ContactData>& contactss
         cout<<endl;
     }
     system("pause");
-
 }

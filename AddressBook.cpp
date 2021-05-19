@@ -28,7 +28,7 @@ void AddressBook::ChangeUserPassword() {
 
 void AddressBook::LogoutUser() {
     user.~UserManager();
-    conntacts.clear();
+    contacts.clear();
     cout << "Uzytkownik zostal wylogowany. Dziekujemy za skorzystanie z programu"<<endl;
     system("pause");
 }
@@ -39,7 +39,8 @@ void AddressBook::AddNewContact() {
         system("pause");
     } else {
     int ID=user.getLoggedUserID();
-    contact.AddNewContact(ID, contacts);
+    contact.AddNewContact(ID, contacts, NumberOfContacts);
+    NumberOfContacts++;
     }
 }
 
