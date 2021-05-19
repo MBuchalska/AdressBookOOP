@@ -4,15 +4,25 @@
 using namespace std;
 
 int main() {
-    AddressBook book("Uzytkownicy.txt");
+   int ID;
+
+    AddressBook book("Uzytkownicy.txt", "Adresaci.txt");
     book.PrintAllUsers();
-    // book.UserRegister();
-    // book.UserRegister();
+    book.UserRegister();
+
     book.LoginUser();
-    book.ChangeUserPassword();
-    book.PrintAllUsers();
+
+    book.PrintAllContactsOfLoggedUser();
+    book.AddNewContact();
+   //book.ChangeUserPassword();
+    //book.PrintAllUsers();
+   book.PrintAllContactsOfLoggedUser();
     book.LogoutUser();
 
+    book.LoginUser();
+     book.PrintAllContactsOfLoggedUser();
+    book.AddNewContact();
+    book.PrintAllContactsOfLoggedUser();
 
     return 0;
 }

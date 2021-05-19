@@ -5,8 +5,7 @@
 
 
 UserManager::UserManager() {
-    LoggedUserID=0;
-}
+};
 
 void UserManager::UserRegister() {
     string DataInOneLine="";
@@ -81,6 +80,7 @@ int UserManager::LoginUser() {
                     cout << "Witaj " << login << endl;
                     LoggedUserID=USER.getUserID();
                     cout<< LoggedUserID << endl;  // temp
+                    cout << "Wyswietlam dane wszystkich znajomych:" << endl;
                     return LoggedUserID;
 
                 } else {
@@ -133,4 +133,12 @@ void UserManager::ChangeUserPassword() {
 
 UserManager::~UserManager(){
 LoggedUserID=0;
+}
+
+void UserManager::setLoggedUserID(int newUserID){
+LoggedUserID=newUserID;
+}
+
+int UserManager::getLoggedUserID(){
+return LoggedUserID;
 }
