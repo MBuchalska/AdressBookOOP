@@ -10,7 +10,8 @@ using namespace std;
 
 class AddressBook {
 UserManager user;
-ContactManager contact;
+ContactManager *contact;
+const string CONTACT_FILE_NAME;
 vector <ContactData> contacts;
 FileManager file;
 int NumberOfContacts;
@@ -26,11 +27,15 @@ void PrintAllContactsOfLoggedUser(); // shows all contacts of logged user
 
 
 AddressBook(string UserFileName, string ContactFileName)    // constructor that downloads users from the file
-:user(UserFileName, ContactFileName)
-{
-user.DownloadUsersFromFile();
+:user(UserFileName), CONTACT_FILE_NAME(ContactFileName){
+contact = NULL;
 user.setLoggedUserID(0);
-NumberOfContacts=file.HowManyContacts();
+NumberOfContacts=file.HowManyContacts(CONTACT_FILE_NAME);
+}
+
+~AddressBook () {
+delete contact;
+contact = NULL;
 }
 
 };

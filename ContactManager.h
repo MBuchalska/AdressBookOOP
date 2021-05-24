@@ -12,6 +12,7 @@
 using namespace std;
 
 class ContactManager {
+const int LOGGED_USER_ID;
 ContactData contact;
 vector<ContactData> contacts;
 UserManager USER;
@@ -20,10 +21,13 @@ FileManager file;
 Auxiliary Text;
 
 public:
-void AddNewContact(int OwnerID, vector<ContactData>& contactss, int TotalNumberOfContacts);        // adds new contact
-ContactManager();
-void PrintAllContactsOfLoggedUser(vector<ContactData>& contactss);  // prints all contacts on screen
+void AddNewContact(int OwnerID, int TotalNumberOfContacts, string ContactFileName);        // adds new contact
+ContactManager(string ContactFileName, int LoggedUserID)
+:file (ContactFileName), LOGGED_USER_ID(LoggedUserID){
+contacts=file.DownloadContactsFromFile(LOGGED_USER_ID, ContactFileName);
+};
 
+void PrintAllContactsOfLoggedUser();  // prints all contacts on screen
 };
 
 

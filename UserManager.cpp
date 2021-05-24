@@ -49,10 +49,6 @@ void UserManager::PrintAllUsers() {
     system("pause");
 }
 
-void UserManager::DownloadUsersFromFile() {
-    users=file.DownloadUsersFromFile();
-}
-
 int UserManager::LoginUser() {
     string TempLogin="", TempPassword="", login="", pass="";
 

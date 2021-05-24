@@ -64,7 +64,6 @@
 --
 +UserRegister; void
 +PrintAllUsers; void
-+DownloadUsersFromFile; void
 +LoginUser(); int
 +UserManager(string UserFileName, string ContactFileName);
 +UserManager();

@@ -19,13 +19,14 @@ class UserManager {
     Auxiliary DataInLine;
 
 public:
-    UserManager(string UserFileName, string ContactFileName)//refers to const user and contact filename
-    :file(UserFileName, ContactFileName) {};
+    UserManager(string UserFileName)//refers to const user and contact filename
+    :file(UserFileName) {
+        users=file.DownloadUsersFromFile();                 //downloads users from file to vector
+        };
     UserManager();              // constructor with initial declaration of logged user ID
     ~UserManager();             // destructor; logging user out
     void UserRegister();        // registration of new user
     void PrintAllUsers();       // shows all users on the screen
-    void DownloadUsersFromFile(); //downloads users from file to vector
     int LoginUser();            // logging the user in
     void ChangeUserPassword();  // changes logged user's password
     int getLoggedUserID();      // getter for logged user

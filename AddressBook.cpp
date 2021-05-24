@@ -19,7 +19,9 @@ void AddressBook::PrintAllUsers() {
 void AddressBook::LoginUser() {
     int ID=user.LoginUser();
     system("pause");
-    contacts=file.DownloadContactsFromFile(ID);
+    if (ID>0) {
+        contact = new ContactManager(CONTACT_FILE_NAME, ID);
+    }
 }
 
 void AddressBook::ChangeUserPassword() {
@@ -28,7 +30,8 @@ void AddressBook::ChangeUserPassword() {
 
 void AddressBook::LogoutUser() {
     user.~UserManager();
-    contacts.clear();
+    delete contact;
+    contact = NULL;
     cout << "Uzytkownik zostal wylogowany. Dziekujemy za skorzystanie z programu"<<endl;
     system("pause");
 }
@@ -39,7 +42,7 @@ void AddressBook::AddNewContact() {
         system("pause");
     } else {
     int ID=user.getLoggedUserID();
-    contact.AddNewContact(ID, contacts, NumberOfContacts);
+    contact->AddNewContact(ID, NumberOfContacts, CONTACT_FILE_NAME);
     NumberOfContacts++;
     }
 }
@@ -49,6 +52,6 @@ void AddressBook::PrintAllContactsOfLoggedUser() {
         cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
         system("pause");
     } else {
-        contact.PrintAllContactsOfLoggedUser(contacts);
+        contact->PrintAllContactsOfLoggedUser();
     }
 }

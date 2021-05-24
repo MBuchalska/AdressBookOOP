@@ -9,8 +9,8 @@
 using namespace std;
 
 class FileManager{
-const string UserFileName;
-const string ContactFileName;
+const string USER_FILE_NAME;
+//const string CONTACT_FILE_NAME;
 fstream uzytkownicy, znajomi;
 
 UserData AddUserDataToVector(string line);          //downloads single user to UserData format
@@ -18,15 +18,15 @@ ContactData AddContactsToVector(string line);       //downloads single contact d
 
 public:
 FileManager();
-FileManager(string USERFILENAME, string CONTACTFILENAME)    //constructor with const UserFileName and ContactFilename
-:UserFileName(USERFILENAME),ContactFileName(CONTACTFILENAME) {};
+FileManager(string USERFILENAME)    //constructor with const UserFileName and ContactFilename
+:USER_FILE_NAME(USERFILENAME) {};
 
 void addUserToFile(string line);          //saves user in txt file
 vector <UserData> DownloadUsersFromFile(); //adds users from file to vector
 void ClearUserFile();                        //clears a file with Users
-void addContactsToFile(string line);        // adds Contacts to txt file
-vector <ContactData> DownloadContactsFromFile(int LoggedUserID); //downloads contacts from file
-int HowManyContacts();                  //checks how many contacts are in the file overall
+void addContactsToFile(string line, string ContactFileName);        // adds Contacts to txt file
+vector <ContactData> DownloadContactsFromFile(int LoggedUserID, string ContactFileName); //downloads contacts from file
+int HowManyContacts(string ContactFileName);                  //checks how many contacts are in the file overall
 };
 
 #endif

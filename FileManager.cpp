@@ -9,7 +9,7 @@
 FileManager::FileManager() {}
 
 void FileManager::addUserToFile(string line) {
-    uzytkownicy.open(UserFileName,ios::out|ios::app);
+    uzytkownicy.open(USER_FILE_NAME,ios::out|ios::app);
     uzytkownicy<<line<<endl;
     uzytkownicy.close();
 }
@@ -20,7 +20,7 @@ vector <UserData> FileManager::DownloadUsersFromFile() {
     UserData USER;
     FileManager file;
 
-    uzytkownicy.open(UserFileName,ios::in);
+    uzytkownicy.open(USER_FILE_NAME,ios::in);
 
     while (getline(uzytkownicy,line)) {
         USER=file.AddUserDataToVector((line));
@@ -54,24 +54,24 @@ UserData FileManager::AddUserDataToVector(string line) {
 }
 
 void FileManager::ClearUserFile() {
-    uzytkownicy.open(UserFileName,ios::out|ios::trunc);
+    uzytkownicy.open(USER_FILE_NAME,ios::out|ios::trunc);
     uzytkownicy.close();
 }
 
-void FileManager::addContactsToFile(string line) {
-    znajomi.open("Adresaci.txt",ios::out|ios::app);
+void FileManager::addContactsToFile(string line, string ContactFileName) {
+    znajomi.open(ContactFileName,ios::out|ios::app);
     znajomi<<line<<endl;
     znajomi.close();
 }
 
-vector <ContactData> FileManager::DownloadContactsFromFile(int LoggedUserID) {
+vector <ContactData> FileManager::DownloadContactsFromFile(int LoggedUserID, string ContactFileName) {
     vector <ContactData> contacts;
     ContactData contact;
     FileManager file;
     string line;
     int licznik=0;
 
-    znajomi.open("Adresaci.txt",ios::in);
+    znajomi.open(ContactFileName,ios::in);
     while (getline(znajomi,line)) {       // odczytuje kolejne linie dopoki getline nie zwtoci falsz
         contact=file.AddContactsToVector(line);
         licznik++;
@@ -128,10 +128,10 @@ ContactData FileManager::AddContactsToVector(string line) {
 
     return Contact;
 }
-int FileManager::HowManyContacts() {
+int FileManager::HowManyContacts(string ContactFileName) {
     int licznik=0;
     string line;
-    znajomi.open("Adresaci.txt",ios::in);
+    znajomi.open(ContactFileName,ios::in);
     while (getline(znajomi,line)) licznik++;
     znajomi.close();
 
