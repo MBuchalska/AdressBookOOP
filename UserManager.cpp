@@ -54,7 +54,7 @@ int UserManager::LoginUser() {
 
     system("cls");
     numberOfUsers=users.size();
-    cout << "Logowanie" << endl;
+    cout << "Logowanie uzytkownika" << endl;
     cout << "Podaj nazwe uzytkownika: " ;
     cin >> TempLogin;
     cout <<endl;
