@@ -26,8 +26,7 @@ int main() {
             break;
         case '2': {
             book.LoginUser();
-            int ID = 1;              // temp wymyœl pozniej jak to poprwaic
-            while (ID!=0) {
+            while (book.IsUserLogedIn()==true) {
                 cout << endl;
                 cout << "Wybierz co chcesz zrobic" << endl;
                 cout << "1. Dodaj adresata" << endl;
@@ -51,7 +50,7 @@ int main() {
                     book.PrintAllContactsOfLoggedUser();
                     break;
                 case '5':
-                    book.DeleleteContact();
+                    book.DeleteContact();
                     break;
                 case '6':
                     book.ChangeContactData();
@@ -61,7 +60,6 @@ int main() {
                     break;
                 case '9': {
                     book.LogoutUser();
-                    ID=0;                   // temp
                 }
                 break;
                 }

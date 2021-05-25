@@ -7,7 +7,7 @@
       <x>128</x>
       <y>48</y>
       <w>320</w>
-      <h>168</h>
+      <h>232</h>
     </coordinates>
     <panel_attributes>AddressBook
 --
@@ -139,7 +139,7 @@
 +AddNewContact(int OwnerID, vector&lt;ContactData&gt;&amp; contactss, int TotalNumberOfContacts); void
 +PrintAllContactsOfLoggedUser(vector&lt;ContactData&gt;&amp; contactss); void
 +ChangeContactData(string ContactFileName);void
-+DeleleteContact(string ContactFileName); void</panel_attributes>
++DeleteContact(string ContactFileName); void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

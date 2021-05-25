@@ -152,7 +152,7 @@ void ContactManager::ChangeContactData(string ContactFileName) {
 }
 
 
-int ContactManager::DeleleteContact(int TotalNumberOfContacts, string ContactFileName) {
+int ContactManager::DeleteContact(int TotalNumberOfContacts, string ContactFileName) {
     int ContactNumber=0, TempID;
     char znak;
 

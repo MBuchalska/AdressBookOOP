@@ -29,6 +29,7 @@ void AddressBook::ChangeUserPassword() {
 }
 
 void AddressBook::LogoutUser() {
+    user.~UserManager();        // nie dziala jesli tego nie wpisze
     delete contact;
     contact = NULL;
     cout << "Uzytkownik zostal wylogowany. Dziekujemy za skorzystanie z programu"<<endl;
@@ -43,6 +44,7 @@ void AddressBook::AddNewContact() {
     int ID=user.getLoggedUserID();
     contact->AddNewContact(ID, NumberOfContacts, LastContactID, CONTACT_FILE_NAME);
     NumberOfContacts++;
+    LastContactID++;
     }
 }
 
@@ -64,11 +66,16 @@ void AddressBook::ChangeContactData(){
     }
 }
 
-void AddressBook::DeleleteContact(){
+void AddressBook::DeleteContact(){
 if (user.getLoggedUserID()==0) {
         cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
         system("pause");
     } else {
-        NumberOfContacts=contact->DeleleteContact(NumberOfContacts, CONTACT_FILE_NAME);
+        NumberOfContacts=contact->DeleteContact(NumberOfContacts, CONTACT_FILE_NAME);
     }
+}
+
+bool AddressBook::IsUserLogedIn(){
+if (user.getLoggedUserID()==0) return false;
+else return true;
 }
