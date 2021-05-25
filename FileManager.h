@@ -13,6 +13,7 @@ class FileManager{
 const string USER_FILE_NAME;
 fstream uzytkownicy, znajomi;
 Auxiliary aux;
+int LastContactID;
 
 UserData AddUserDataToVector(string line);          //downloads single user to UserData format
 ContactData AddContactsToVector(string line);       //downloads single contact do ContactDataFormat
@@ -29,6 +30,7 @@ void addContactsToFile(string line, string ContactFileName);        // adds Cont
 vector <ContactData> DownloadContactsFromFile(int LoggedUserID, string ContactFileName); //downloads contacts from file
 int HowManyContacts(string ContactFileName);                  //checks how many contacts are in the file overall
 void ChangeContactInFile(ContactData TempContact, string ContactFileName);
+int getLastContactID();
 };
 
 #endif

@@ -42,7 +42,7 @@ void AddressBook::AddNewContact() {
         system("pause");
     } else {
     int ID=user.getLoggedUserID();
-    contact->AddNewContact(ID, NumberOfContacts, CONTACT_FILE_NAME);
+    contact->AddNewContact(ID, NumberOfContacts, LastContactID, CONTACT_FILE_NAME);
     NumberOfContacts++;
     }
 }

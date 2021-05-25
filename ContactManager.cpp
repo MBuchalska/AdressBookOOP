@@ -5,7 +5,7 @@
 #include "ContactData.h"
 
 
-void ContactManager::AddNewContact(int OwnerID, int TotalNumberOfContacts, string ContactFileName) {
+void ContactManager::AddNewContact(int OwnerID, int TotalNumberOfContacts, int LastContactID, string ContactFileName) {
     string DaneDoZapisu="";
     string TempString="";
     int ContID;
@@ -14,7 +14,8 @@ void ContactManager::AddNewContact(int OwnerID, int TotalNumberOfContacts, strin
     cout << "Dodawanie nowego adresata" << endl;
     cout << "Podaj dane osoby" << endl;
 
-    ContID=TotalNumberOfContacts+1;
+    if (TotalNumberOfContacts==LastContactID) ContID=TotalNumberOfContacts+1;
+    else ContID=LastContactID+1;
     contact.setContactID(ContID);
 
     contact.setOwnerID(OwnerID);

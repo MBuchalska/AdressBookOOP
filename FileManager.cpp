@@ -129,10 +129,15 @@ ContactData FileManager::AddContactsToVector(string line) {
     return Contact;
 }
 int FileManager::HowManyContacts(string ContactFileName) {
-    int licznik=0;
-    string line;
+    int licznik=0, pozycja=0;
+    string line, TempString="";
     znajomi.open(ContactFileName,ios::in);
-    while (getline(znajomi,line)) licznik++;
+    while (getline(znajomi,line)) {
+        pozycja=line.find("|");
+        TempString=line.substr(0,pozycja);
+        LastContactID=atoi(TempString.c_str());
+        licznik++;
+    }
     znajomi.close();
 
     return licznik;
@@ -167,4 +172,8 @@ void FileManager::ChangeContactInFile(ContactData TempContact, string ContactFil
 
     system("pause");
 
+}
+
+int FileManager::getLastContactID() {
+    return LastContactID;
 }

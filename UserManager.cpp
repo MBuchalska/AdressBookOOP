@@ -75,7 +75,6 @@ int UserManager::LoginUser() {
                     cout << "Logowanie poprawne" <<endl;
                     cout << "Witaj " << login << endl;
                     LoggedUserID=USER.getUserID();
-                    cout<< LoggedUserID << endl;  // temp
                     cout << "Wyswietlam dane wszystkich znajomych:" << endl;
                     return LoggedUserID;
 

@@ -21,7 +21,7 @@ FileManager file;
 Auxiliary Text;
 
 public:
-void AddNewContact(int OwnerID, int TotalNumberOfContacts, string ContactFileName);        // adds new contact
+void AddNewContact(int OwnerID, int TotalNumberOfContacts, int LastContactID, string ContactFileName);        // adds new contact
 ContactManager(string ContactFileName, int LoggedUserID)
 :file (ContactFileName), LOGGED_USER_ID(LoggedUserID){
 contacts=file.DownloadContactsFromFile(LOGGED_USER_ID, ContactFileName);

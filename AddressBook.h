@@ -15,6 +15,7 @@ const string CONTACT_FILE_NAME;
 vector <ContactData> contacts;
 FileManager file;
 int NumberOfContacts;
+int LastContactID;
 
 public:
 void UserRegister();        // registration of new user
@@ -32,6 +33,7 @@ AddressBook(string UserFileName, string ContactFileName)    // constructor that 
 contact = NULL;
 user.setLoggedUserID(0);
 NumberOfContacts=file.HowManyContacts(CONTACT_FILE_NAME);
+LastContactID=file.getLastContactID();
 }
 
 ~AddressBook () {
