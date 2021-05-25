@@ -177,3 +177,26 @@ void FileManager::ChangeContactInFile(ContactData TempContact, string ContactFil
 int FileManager::getLastContactID() {
     return LastContactID;
 }
+
+void FileManager::DeleteContactData(string ContactFileName, int ID) {
+    fstream znajomi2;
+    int TempID, pozycja;
+    string TempString, line;
+
+    znajomi.open(ContactFileName,ios::in);
+    znajomi2.open("tymczasowy.txt.",ios::out|ios::app);
+
+    cin.sync();
+    while (getline(znajomi,line)) {
+        pozycja=line.find("|");
+        TempString=line.substr(0,pozycja);
+        TempID=atoi(TempString.c_str());
+
+        if (TempID!=ID) znajomi2<<line<<endl;
+    }
+    znajomi.close();
+    znajomi2.close();
+
+    remove("Adresaci.txt");
+    rename("tymczasowy.txt.","Adresaci.txt");
+}

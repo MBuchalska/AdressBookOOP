@@ -31,6 +31,7 @@ vector <ContactData> DownloadContactsFromFile(int LoggedUserID, string ContactFi
 int HowManyContacts(string ContactFileName);                  //checks how many contacts are in the file overall
 void ChangeContactInFile(ContactData TempContact, string ContactFileName);
 int getLastContactID();
+void DeleteContactData(string ContactFileName, int ID);
 };
 
 #endif

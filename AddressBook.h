@@ -26,6 +26,7 @@ void LogoutUser();
 void AddNewContact();       // adds new contact for logged user, and downloads contacts
 void PrintAllContactsOfLoggedUser(); // shows all contacts of logged user
 void ChangeContactData();           // changes contact data
+void DeleleteContact();             //deletes contact data
 
 
 AddressBook(string UserFileName, string ContactFileName)    // constructor that downloads users from the file

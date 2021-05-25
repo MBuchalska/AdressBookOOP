@@ -150,3 +150,47 @@ void ContactManager::ChangeContactData(string ContactFileName) {
     ContactData TempContact = contacts[ContactNumber];
     file.ChangeContactInFile(TempContact, ContactFileName);
 }
+
+
+int ContactManager::DeleleteContact(int TotalNumberOfContacts, string ContactFileName) {
+    int ContactNumber=0, TempID;
+    char znak;
+
+    system("cls");
+
+    cout << "Usuwanie rekordu" << endl;
+    cout << "Podaj ID rekordu, ktory chcesz usunac:" <<endl;
+    cin >> TempID;
+    for(int i=0; i<NumberOfContacts; i++) {
+        if (contacts[i].getContactID()==TempID) {
+            cout<<"ID: "<< contacts[i].getContactID() <<endl;
+            cout<<"ID uzytnownika: "<< contacts[i].getOwnerID() <<endl; // TEMPORARY
+            cout<<"Imie: "<< contacts[i].getFirstName() <<endl;
+            cout<<"Nazwisko: "<< contacts[i].getLastName()<<endl;
+            cout<<"Telefon: "<< contacts[i].getPhoneNumber()<<endl;
+            cout<<"Mail: " << contacts[i].getMail()<<endl;
+            cout<<"Adres: " << contacts[i].getAddress()<<endl;
+            ContactNumber=i;
+            cout<<endl;
+        }
+    }
+
+    cout<<"Czy napewno chcesz usunac ten rekord? (t/n)" << endl;
+    cin>> znak;
+
+    if (znak=='t') {
+        contacts.erase(contacts.begin()+ContactNumber);
+        TotalNumberOfContacts--;
+        file.DeleteContactData(ContactFileName, TempID);
+
+        cout << "Rekord zostal usuniety" << endl;
+        system("pause");
+        return TotalNumberOfContacts;
+    }
+
+    else {
+        cout << "Rekord nie zostal usuniety" << endl;
+        system("pause");
+        return TotalNumberOfContacts;
+    }
+}
