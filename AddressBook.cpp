@@ -55,3 +55,12 @@ void AddressBook::PrintAllContactsOfLoggedUser() {
         contact->PrintAllContactsOfLoggedUser();
     }
 }
+
+void AddressBook::ChangeContactData(){
+        if (user.getLoggedUserID()==0) {
+        cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
+        system("pause");
+    } else {
+        contact->ChangeContactData(CONTACT_FILE_NAME);
+    }
+}

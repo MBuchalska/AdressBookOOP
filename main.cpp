@@ -14,7 +14,7 @@ int main() {
         cout << "Co chcesz zrobic:" << endl;
         cout << "1. Rejestracja nowego uzytkownika" << endl;
         cout << "2. Logowanie uzytkownika" << endl;
-        cout << "3. Wypisz wszystkich u¿ytkownikow" <<endl;
+        cout << "3. Wypisz wszystkich uzytkownikow" <<endl;
         cout << "9. Koniec pracy" << endl;
         cin >> znak;
 
@@ -33,7 +33,7 @@ int main() {
                // cout << "3. Wyszukaj po nazwisku" << endl;
                 cout << "4. Wyswietl wszystkich adresatow" << endl;
                // cout << "5. Usun adresata" << endl;
-              //  cout << "6. Edytuj adresata" << endl;
+                cout << "6. Edytuj adresata" << endl;
                 cout << "7. Zmiana hasla" << endl;
                 cout << "9. Wyloguj" << endl;
                 cin >> znak;
@@ -45,7 +45,7 @@ int main() {
               //  case '3':                 break;
                 case '4': book.PrintAllContactsOfLoggedUser(); break;
                // case '5': break;
-               // case '6':                 break;
+                case '6': book.ChangeContactData(); break;
                 case '7': book.ChangeUserPassword(); break;
                 case '9': {
                     book.LogoutUser();

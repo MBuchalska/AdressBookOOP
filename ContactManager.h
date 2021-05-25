@@ -28,6 +28,7 @@ contacts=file.DownloadContactsFromFile(LOGGED_USER_ID, ContactFileName);
 };
 
 void PrintAllContactsOfLoggedUser();  // prints all contacts on screen
+void ChangeContactData(string ContactFileName);              // changes data of a contact
 };
 
 

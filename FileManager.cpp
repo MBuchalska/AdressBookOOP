@@ -137,3 +137,34 @@ int FileManager::HowManyContacts(string ContactFileName) {
 
     return licznik;
 }
+
+void FileManager::ChangeContactInFile(ContactData TempContact, string ContactFileName) {
+    fstream znajomi2;
+    string line, TempString="";
+    int ID=TempContact.getContactID(), TempID=0;
+    ContactData SingleContact;
+    FileManager file;
+
+    znajomi.open(ContactFileName,ios::in);
+    znajomi2.open("tymczasowy.txt.",ios::out|ios::app);
+
+    cin.sync();
+    while (getline(znajomi,line)) {
+        SingleContact=file.AddContactsToVector(line);
+        TempID=SingleContact.getContactID();
+
+        if(TempID==ID) {
+            TempString=aux.ContactDataInOneLine(TempContact);
+            znajomi2<<TempString<<endl;
+        } else znajomi2<<line<<endl;
+    }
+
+    znajomi.close();
+    znajomi2.close();
+
+    remove("Adresaci.txt");             //nie chce dzialac jak sie poda zmienna
+    rename("tymczasowy.txt.","Adresaci.txt");
+
+    system("pause");
+
+}

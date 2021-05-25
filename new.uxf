@@ -24,7 +24,8 @@
 +ChangeUserPassword();void
 +LogoutUser(); void
 +AddNewContact();void
-+PrintAllContactsOfLoggedUser(); void</panel_attributes>
++PrintAllContactsOfLoggedUser(); void
++ChangeContactData();void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -75,9 +76,9 @@
     <id>UMLClass</id>
     <coordinates>
       <x>128</x>
-      <y>424</y>
+      <y>408</y>
       <w>352</w>
-      <h>200</h>
+      <h>216</h>
     </coordinates>
     <panel_attributes>FileManager
 --
@@ -92,9 +93,10 @@
 +DownloadUsersFromFile(); vector&lt;UserData&gt;
 -AddUserDataToVector(string line);UserData
 +ClearUserFile();void
-+FileManager::DownloadContactsFromFile(int LoggedUserID; vector &lt;ContactData&gt; 
++DownloadContactsFromFile(int LoggedUserID; vector &lt;ContactData&gt; 
 -AddContactsToVector(string line); ContactData
-+HowManyContacts(); int</panel_attributes>
++HowManyContacts(); int
++ChangeContactInFile(vector &lt;ContactData&gt;&amp; contacts, int TempID, string ContactFileName); void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -111,7 +113,7 @@
 -contact; ContactData
 --
 +UserDataInOneLine(UserData USER);string
-+ContactDataInOneLine(ContactData contact, int OwnerID); string</panel_attributes>
++ContactDataInOneLine(ContactData contact); string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -133,7 +135,8 @@
 --
 +ContactManager();
 +AddNewContact(int OwnerID, vector&lt;ContactData&gt;&amp; contactss, int TotalNumberOfContacts); void
-+PrintAllContactsOfLoggedUser(vector&lt;ContactData&gt;&amp; contactss); void</panel_attributes>
++PrintAllContactsOfLoggedUser(vector&lt;ContactData&gt;&amp; contactss); void
++ChangeContactData(string ContactFileName);void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
