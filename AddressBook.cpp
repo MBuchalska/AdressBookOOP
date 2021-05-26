@@ -29,7 +29,7 @@ void AddressBook::ChangeUserPassword() {
 }
 
 void AddressBook::LogoutUser() {
-    user.~UserManager();        // nie dziala jesli tego nie wpisze
+    user.setLoggedUserID(0);
     delete contact;
     contact = NULL;
     cout << "Uzytkownik zostal wylogowany. Dziekujemy za skorzystanie z programu"<<endl;

@@ -167,8 +167,9 @@ void FileManager::ChangeContactInFile(ContactData TempContact, string ContactFil
     znajomi.close();
     znajomi2.close();
 
-    remove("Adresaci.txt");             //nie chce dzialac jak sie poda zmienna
-    rename("tymczasowy.txt.","Adresaci.txt");
+    const char * name = ContactFileName.c_str();
+    remove(name);
+    rename("tymczasowy.txt.", name);
 
     system("pause");
 
@@ -197,6 +198,7 @@ void FileManager::DeleteContactData(string ContactFileName, int ID) {
     znajomi.close();
     znajomi2.close();
 
-    remove("Adresaci.txt");
-    rename("tymczasowy.txt.","Adresaci.txt");
+    const char * name = ContactFileName.c_str();
+    remove(name);
+    rename("tymczasowy.txt.",name);
 }
