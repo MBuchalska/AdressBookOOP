@@ -7,7 +7,6 @@
 #ifndef USERMANAGER_h
 #define USERMANAGER_h
 
-
 using namespace std;
 
 class UserManager {
@@ -20,18 +19,18 @@ class UserManager {
 
 public:
     UserManager(string UserFileName)//refers to const user and contact filename
-    :file(UserFileName) {
+        :file(UserFileName) {
         users=file.DownloadUsersFromFile();                 //downloads users from file to vector
-        };
+    };
     UserManager();              // constructor with initial declaration of logged user ID
     ~UserManager();             // destructor; logging user out
+
     void UserRegister();        // registration of new user
     void PrintAllUsers();       // shows all users on the screen
     int LoginUser();            // logging the user in
     void ChangeUserPassword();  // changes logged user's password
-    int getLoggedUserID();      // getter for logged user
     void setLoggedUserID(int newUserID); //setter for initial user id
-
+    int getLoggedUserID();      // getter for logged user
 };
 
 

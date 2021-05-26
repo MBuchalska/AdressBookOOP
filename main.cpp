@@ -30,8 +30,8 @@ int main() {
                 cout << endl;
                 cout << "Wybierz co chcesz zrobic" << endl;
                 cout << "1. Dodaj adresata" << endl;
-                // cout << "2. Wyszukaj po imieniu" << endl;
-                // cout << "3. Wyszukaj po nazwisku" << endl;
+                cout << "2. Wyszukaj po imieniu" << endl;
+                cout << "3. Wyszukaj po nazwisku" << endl;
                 cout << "4. Wyswietl wszystkich adresatow" << endl;
                 cout << "5. Usun adresata" << endl;
                 cout << "6. Edytuj adresata" << endl;
@@ -44,8 +44,12 @@ int main() {
                 case '1':
                     book.AddNewContact();
                     break;
-                //   case '2':                 break;
-                //  case '3':                 break;
+                case '2':
+                    book.FindContactByFirstName();
+                    break;
+                case '3':
+                    book.FindContactByLastName();
+                    break;
                 case '4':
                     book.PrintAllContactsOfLoggedUser();
                     break;
@@ -58,16 +62,16 @@ int main() {
                 case '7':
                     book.ChangeUserPassword();
                     break;
-                case '9': {
+                case '9':
                     book.LogoutUser();
-                }
-                break;
+                    break;
                 }
             }
         }
         break;
+
         case '3': {
-            cout << "3. Wypisujê zarejestrowanych uzytkownikow" <<endl;
+            cout << "3. Wypisuje zarejestrowanych uzytkownikow" <<endl;
             book.PrintAllUsers();
         }
         break;
@@ -77,7 +81,6 @@ int main() {
             exit(0);
         }
         break;
-
         }
     }
     return 0;

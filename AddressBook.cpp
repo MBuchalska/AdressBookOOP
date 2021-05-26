@@ -41,10 +41,10 @@ void AddressBook::AddNewContact() {
         cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby dodaæ adresata" << endl;
         system("pause");
     } else {
-    int ID=user.getLoggedUserID();
-    contact->AddNewContact(ID, NumberOfContacts, LastContactID, CONTACT_FILE_NAME);
-    NumberOfContacts++;
-    LastContactID++;
+        int ID=user.getLoggedUserID();
+        contact->AddNewContact(ID, NumberOfContacts, LastContactID, CONTACT_FILE_NAME);
+        NumberOfContacts++;
+        LastContactID++;
     }
 }
 
@@ -57,8 +57,8 @@ void AddressBook::PrintAllContactsOfLoggedUser() {
     }
 }
 
-void AddressBook::ChangeContactData(){
-        if (user.getLoggedUserID()==0) {
+void AddressBook::ChangeContactData() {
+    if (user.getLoggedUserID()==0) {
         cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
         system("pause");
     } else {
@@ -66,8 +66,8 @@ void AddressBook::ChangeContactData(){
     }
 }
 
-void AddressBook::DeleteContact(){
-if (user.getLoggedUserID()==0) {
+void AddressBook::DeleteContact() {
+    if (user.getLoggedUserID()==0) {
         cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
         system("pause");
     } else {
@@ -75,7 +75,25 @@ if (user.getLoggedUserID()==0) {
     }
 }
 
-bool AddressBook::IsUserLogedIn(){
-if (user.getLoggedUserID()==0) return false;
-else return true;
+bool AddressBook::IsUserLogedIn() {
+    if (user.getLoggedUserID()==0) return false;
+    else return true;
+}
+
+void AddressBook::FindContactByFirstName() {
+    if (user.getLoggedUserID()==0) {
+        cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
+        system("pause");
+    } else {
+        contact->FindContactByFirstName();
+    }
+}
+
+void AddressBook::FindContactByLastName() {
+    if (user.getLoggedUserID()==0) {
+        cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
+        system("pause");
+    } else {
+        contact->FindContactByLastName();
+    }
 }

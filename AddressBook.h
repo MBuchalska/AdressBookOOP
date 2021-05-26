@@ -27,7 +27,9 @@ void AddNewContact();       // adds new contact for logged user, and downloads c
 void PrintAllContactsOfLoggedUser(); // shows all contacts of logged user
 void ChangeContactData();           // changes contact data
 void DeleteContact();             //deletes contact data
-bool IsUserLogedIn();
+bool IsUserLogedIn();               // checks if user is logged in
+void FindContactByFirstName();    // finds contacts with given names
+void FindContactByLastName();    // finds contacts with given names
 
 
 AddressBook(string UserFileName, string ContactFileName)    // constructor that downloads users from the file
@@ -44,6 +46,5 @@ contact = NULL;
 }
 
 };
-
 
 #endif // ADDRESSBOOK_h

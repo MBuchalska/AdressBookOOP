@@ -7,15 +7,17 @@
       <x>128</x>
       <y>48</y>
       <w>320</w>
-      <h>232</h>
+      <h>288</h>
     </coordinates>
     <panel_attributes>AddressBook
 --
 -user; UserManager 
--contact; ContactManager 
+-*contact; ContactManager 
 -contacts; vector &lt;ContactData&gt;
 -file; FileManager
 -NumberOfContacts; int
+-LastContactID; int
+-CONTACT_FILE_NAME; const string
 --
 +AddressBook(string UserFileName, string ContactFileName);
 +UserRegister; void
@@ -26,7 +28,10 @@
 +AddNewContact();void
 +PrintAllContactsOfLoggedUser(); void
 +ChangeContactData();void
-+DeleteContact(); void</panel_attributes>
++DeleteContact(); void
++FindContactByFirstName(); void
++FindContactByLastName(); void
++IsUserLogedIn(); bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -52,7 +57,7 @@
       <x>488</x>
       <y>48</y>
       <w>336</w>
-      <h>240</h>
+      <h>216</h>
     </coordinates>
     <panel_attributes>UserManager
 --
@@ -64,13 +69,14 @@
 -DataInLine; Auxiliary 
 
 --
++UserManager(string UserFileName, string ContactFileName);
++UserManager();
++~UserManager(); 
 +UserRegister; void
 +PrintAllUsers; void
 +LoginUser(); int
-+UserManager(string UserFileName, string ContactFileName);
-+UserManager();
 +ChangeUserPassword();void
-+~UserManager(); </panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -124,7 +130,7 @@
       <x>488</x>
       <y>296</y>
       <w>336</w>
-      <h>176</h>
+      <h>216</h>
     </coordinates>
     <panel_attributes>ContactManager
 --
@@ -134,12 +140,16 @@
 -NumberOfContacts; int
 -file; FileManager
 -Text; Auxiliary
+-LOGGED_USER_ID; const int
 --
 +ContactManager();
-+AddNewContact(int OwnerID, vector&lt;ContactData&gt;&amp; contactss, int TotalNumberOfContacts); void
-+PrintAllContactsOfLoggedUser(vector&lt;ContactData&gt;&amp; contactss); void
++AddNewContact(int OwnerID, int TotalNumberOfContacts, int LastContactID, string ContactFileName); void
++PrintAllContactsOfLoggedUser(); void
 +ChangeContactData(string ContactFileName);void
-+DeleteContact(string ContactFileName); void</panel_attributes>
++DeleteContact(int TotalNumberOfContacts,string ContactFileName); int
++FindContactByFirstName(); void
++FindContactByLastName(); void
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
