@@ -43,7 +43,7 @@ void UserManager::PrintAllUsers() {
     for (int i=0; i<users.size(); i++) {
         cout << "ID: " << users[i].getUserID() << endl;
         cout << "Nazwa uzytkownika: " << users[i].getUserName() << endl;
-        cout << "Haslo: " << users[i].getUserPassword() << endl;
+      //  cout << "Haslo: " << users[i].getUserPassword() << endl;
         cout << endl;
     }
     system("pause");
@@ -54,7 +54,7 @@ int UserManager::LoginUser() {
 
     system("cls");
     numberOfUsers=users.size();
-    cout << "Logowanie" << endl;
+    cout << "Logowanie uzytkownika" << endl;
     cout << "Podaj nazwe uzytkownika: " ;
     cin >> TempLogin;
     cout <<endl;
@@ -75,8 +75,6 @@ int UserManager::LoginUser() {
                     cout << "Logowanie poprawne" <<endl;
                     cout << "Witaj " << login << endl;
                     LoggedUserID=USER.getUserID();
-                    cout<< LoggedUserID << endl;  // temp
-                    cout << "Wyswietlam dane wszystkich znajomych:" << endl;
                     return LoggedUserID;
 
                 } else {
@@ -127,14 +125,14 @@ void UserManager::ChangeUserPassword() {
     }
 }
 
-UserManager::~UserManager(){
-LoggedUserID=0;
+UserManager::~UserManager() {
+    LoggedUserID=0;
 }
 
-void UserManager::setLoggedUserID(int newUserID){
-LoggedUserID=newUserID;
+void UserManager::setLoggedUserID(int newUserID) {
+    LoggedUserID=newUserID;
 }
 
-int UserManager::getLoggedUserID(){
-return LoggedUserID;
+int UserManager::getLoggedUserID() {
+    return LoggedUserID;
 }

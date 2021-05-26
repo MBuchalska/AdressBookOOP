@@ -7,8 +7,6 @@
 #ifndef CONTACTMANAGER_H
 #define CONTACTMANAGER_H
 
-
-
 using namespace std;
 
 class ContactManager {
@@ -21,13 +19,17 @@ FileManager file;
 Auxiliary Text;
 
 public:
-void AddNewContact(int OwnerID, int TotalNumberOfContacts, string ContactFileName);        // adds new contact
 ContactManager(string ContactFileName, int LoggedUserID)
 :file (ContactFileName), LOGGED_USER_ID(LoggedUserID){
 contacts=file.DownloadContactsFromFile(LOGGED_USER_ID, ContactFileName);
 };
 
+void AddNewContact(int OwnerID, int TotalNumberOfContacts, int LastContactID, string ContactFileName); // adds new contact
 void PrintAllContactsOfLoggedUser();  // prints all contacts on screen
+void ChangeContactData(string ContactFileName);              // changes data of a contact
+int DeleteContact(int TotalNumberOfContacts, string ContactFileName);           //deletes a contact
+void FindContactByFirstName();
+void FindContactByLastName();
 };
 
 

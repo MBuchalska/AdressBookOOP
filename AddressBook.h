@@ -15,6 +15,7 @@ const string CONTACT_FILE_NAME;
 vector <ContactData> contacts;
 FileManager file;
 int NumberOfContacts;
+int LastContactID;
 
 public:
 void UserRegister();        // registration of new user
@@ -24,6 +25,11 @@ void ChangeUserPassword();  // changes logged user's password
 void LogoutUser();
 void AddNewContact();       // adds new contact for logged user, and downloads contacts
 void PrintAllContactsOfLoggedUser(); // shows all contacts of logged user
+void ChangeContactData();           // changes contact data
+void DeleteContact();             //deletes contact data
+bool IsUserLogedIn();               // checks if user is logged in
+void FindContactByFirstName();    // finds contacts with given names
+void FindContactByLastName();    // finds contacts with given names
 
 
 AddressBook(string UserFileName, string ContactFileName)    // constructor that downloads users from the file
@@ -31,6 +37,7 @@ AddressBook(string UserFileName, string ContactFileName)    // constructor that 
 contact = NULL;
 user.setLoggedUserID(0);
 NumberOfContacts=file.HowManyContacts(CONTACT_FILE_NAME);
+LastContactID=file.getLastContactID();
 }
 
 ~AddressBook () {
@@ -39,6 +46,5 @@ contact = NULL;
 }
 
 };
-
 
 #endif // ADDRESSBOOK_h

@@ -5,13 +5,15 @@
 #include <vector>
 #include "UserData.h"
 #include "ContactData.h"
+#include "auxiliary.h"
 
 using namespace std;
 
 class FileManager{
 const string USER_FILE_NAME;
-//const string CONTACT_FILE_NAME;
 fstream uzytkownicy, znajomi;
+Auxiliary aux;
+int LastContactID;
 
 UserData AddUserDataToVector(string line);          //downloads single user to UserData format
 ContactData AddContactsToVector(string line);       //downloads single contact do ContactDataFormat
@@ -27,6 +29,9 @@ void ClearUserFile();                        //clears a file with Users
 void addContactsToFile(string line, string ContactFileName);        // adds Contacts to txt file
 vector <ContactData> DownloadContactsFromFile(int LoggedUserID, string ContactFileName); //downloads contacts from file
 int HowManyContacts(string ContactFileName);                  //checks how many contacts are in the file overall
+void ChangeContactInFile(ContactData TempContact, string ContactFileName);
+int getLastContactID();
+void DeleteContactData(string ContactFileName, int ID);
 };
 
 #endif

@@ -7,15 +7,17 @@
       <x>128</x>
       <y>48</y>
       <w>320</w>
-      <h>168</h>
+      <h>288</h>
     </coordinates>
     <panel_attributes>AddressBook
 --
 -user; UserManager 
--contact; ContactManager 
+-*contact; ContactManager 
 -contacts; vector &lt;ContactData&gt;
 -file; FileManager
 -NumberOfContacts; int
+-LastContactID; int
+-CONTACT_FILE_NAME; const string
 --
 +AddressBook(string UserFileName, string ContactFileName);
 +UserRegister; void
@@ -24,7 +26,12 @@
 +ChangeUserPassword();void
 +LogoutUser(); void
 +AddNewContact();void
-+PrintAllContactsOfLoggedUser(); void</panel_attributes>
++PrintAllContactsOfLoggedUser(); void
++ChangeContactData();void
++DeleteContact(); void
++FindContactByFirstName(); void
++FindContactByLastName(); void
++IsUserLogedIn(); bool</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -50,7 +57,7 @@
       <x>488</x>
       <y>48</y>
       <w>336</w>
-      <h>240</h>
+      <h>216</h>
     </coordinates>
     <panel_attributes>UserManager
 --
@@ -62,22 +69,23 @@
 -DataInLine; Auxiliary 
 
 --
++UserManager(string UserFileName, string ContactFileName);
++UserManager();
++~UserManager(); 
 +UserRegister; void
 +PrintAllUsers; void
 +LoginUser(); int
-+UserManager(string UserFileName, string ContactFileName);
-+UserManager();
 +ChangeUserPassword();void
-+~UserManager(); </panel_attributes>
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
       <x>128</x>
-      <y>424</y>
+      <y>384</y>
       <w>352</w>
-      <h>200</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>FileManager
 --
@@ -92,9 +100,11 @@
 +DownloadUsersFromFile(); vector&lt;UserData&gt;
 -AddUserDataToVector(string line);UserData
 +ClearUserFile();void
-+FileManager::DownloadContactsFromFile(int LoggedUserID; vector &lt;ContactData&gt; 
++DownloadContactsFromFile(int LoggedUserID; vector &lt;ContactData&gt; 
++DeleteContactData(string ContactFileName, int ID);void
 -AddContactsToVector(string line); ContactData
-+HowManyContacts(); int</panel_attributes>
++HowManyContacts(); int
++ChangeContactInFile(vector &lt;ContactData&gt;&amp; contacts, int TempID, string ContactFileName); void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -111,7 +121,7 @@
 -contact; ContactData
 --
 +UserDataInOneLine(UserData USER);string
-+ContactDataInOneLine(ContactData contact, int OwnerID); string</panel_attributes>
++ContactDataInOneLine(ContactData contact); string</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -120,7 +130,7 @@
       <x>488</x>
       <y>296</y>
       <w>336</w>
-      <h>160</h>
+      <h>216</h>
     </coordinates>
     <panel_attributes>ContactManager
 --
@@ -130,10 +140,16 @@
 -NumberOfContacts; int
 -file; FileManager
 -Text; Auxiliary
+-LOGGED_USER_ID; const int
 --
 +ContactManager();
-+AddNewContact(int OwnerID, vector&lt;ContactData&gt;&amp; contactss, int TotalNumberOfContacts); void
-+PrintAllContactsOfLoggedUser(vector&lt;ContactData&gt;&amp; contactss); void</panel_attributes>
++AddNewContact(int OwnerID, int TotalNumberOfContacts, int LastContactID, string ContactFileName); void
++PrintAllContactsOfLoggedUser(); void
++ChangeContactData(string ContactFileName);void
++DeleteContact(int TotalNumberOfContacts,string ContactFileName); int
++FindContactByFirstName(); void
++FindContactByLastName(); void
+</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

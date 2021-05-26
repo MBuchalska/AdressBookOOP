@@ -129,11 +129,76 @@ ContactData FileManager::AddContactsToVector(string line) {
     return Contact;
 }
 int FileManager::HowManyContacts(string ContactFileName) {
-    int licznik=0;
-    string line;
+    int licznik=0, pozycja=0;
+    string line, TempString="";
     znajomi.open(ContactFileName,ios::in);
-    while (getline(znajomi,line)) licznik++;
+    while (getline(znajomi,line)) {
+        pozycja=line.find("|");
+        TempString=line.substr(0,pozycja);
+        LastContactID=atoi(TempString.c_str());
+        licznik++;
+    }
     znajomi.close();
 
     return licznik;
+}
+
+void FileManager::ChangeContactInFile(ContactData TempContact, string ContactFileName) {
+    fstream znajomi2;
+    string line, TempString="";
+    int ID=TempContact.getContactID(), TempID=0;
+    ContactData SingleContact;
+    FileManager file;
+
+    znajomi.open(ContactFileName,ios::in);
+    znajomi2.open("tymczasowy.txt.",ios::out|ios::app);
+
+    cin.sync();
+    while (getline(znajomi,line)) {
+        SingleContact=file.AddContactsToVector(line);
+        TempID=SingleContact.getContactID();
+
+        if(TempID==ID) {
+            TempString=aux.ContactDataInOneLine(TempContact);
+            znajomi2<<TempString<<endl;
+        } else znajomi2<<line<<endl;
+    }
+
+    znajomi.close();
+    znajomi2.close();
+
+    const char * name = ContactFileName.c_str();
+    remove(name);
+    rename("tymczasowy.txt.", name);
+
+    system("pause");
+
+}
+
+int FileManager::getLastContactID() {
+    return LastContactID;
+}
+
+void FileManager::DeleteContactData(string ContactFileName, int ID) {
+    fstream znajomi2;
+    int TempID, pozycja;
+    string TempString, line;
+
+    znajomi.open(ContactFileName,ios::in);
+    znajomi2.open("tymczasowy.txt.",ios::out|ios::app);
+
+    cin.sync();
+    while (getline(znajomi,line)) {
+        pozycja=line.find("|");
+        TempString=line.substr(0,pozycja);
+        TempID=atoi(TempString.c_str());
+
+        if (TempID!=ID) znajomi2<<line<<endl;
+    }
+    znajomi.close();
+    znajomi2.close();
+
+    const char * name = ContactFileName.c_str();
+    remove(name);
+    rename("tymczasowy.txt.",name);
 }
