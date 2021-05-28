@@ -27,7 +27,7 @@ contacts=file.DownloadContactsFromFile(LOGGED_USER_ID, ContactFileName);
 void AddNewContact(int OwnerID, int TotalNumberOfContacts, int LastContactID, string ContactFileName); // adds new contact
 void PrintAllContactsOfLoggedUser();  // prints all contacts on screen
 void ChangeContactData(string ContactFileName);              // changes data of a contact
-int DeleteContact(int TotalNumberOfContacts, string ContactFileName);           //deletes a contact
+void DeleteContact(int TotalNumberOfContacts, string ContactFileName);           //deletes a contact
 void FindContactByFirstName();
 void FindContactByLastName();
 };

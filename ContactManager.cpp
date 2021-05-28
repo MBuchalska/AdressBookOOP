@@ -150,7 +150,7 @@ void ContactManager::ChangeContactData(string ContactFileName) {
     file.ChangeContactInFile(TempContact, ContactFileName);
 }
 
-int ContactManager::DeleteContact(int TotalNumberOfContacts, string ContactFileName) {
+void ContactManager::DeleteContact(int TotalNumberOfContacts, string ContactFileName) {
     int ContactNumber=0, TempID;
     char znak;
 
@@ -183,13 +183,11 @@ int ContactManager::DeleteContact(int TotalNumberOfContacts, string ContactFileN
 
         cout << "Rekord zostal usuniety" << endl;
         system("pause");
-        return TotalNumberOfContacts;
     }
 
     else {
         cout << "Rekord nie zostal usuniety" << endl;
         system("pause");
-        return TotalNumberOfContacts;
     }
 }
 

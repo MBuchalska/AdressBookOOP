@@ -38,7 +38,7 @@ void AddressBook::LogoutUser() {
 
 void AddressBook::AddNewContact() {
     if (user.getLoggedUserID()==0) {
-        cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby dodaæ adresata" << endl;
+        cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby dodac adresata" << endl;
         system("pause");
     } else {
         int ID=user.getLoggedUserID();
@@ -71,7 +71,9 @@ void AddressBook::DeleteContact() {
         cout << "Nie zalogowano uzytkownika. Zaloguj sie zeby wyswietlic dane adresata" << endl;
         system("pause");
     } else {
-        NumberOfContacts=contact->DeleteContact(NumberOfContacts, CONTACT_FILE_NAME);
+       contact->DeleteContact(NumberOfContacts, CONTACT_FILE_NAME);
+       NumberOfContacts=file.HowManyContacts(CONTACT_FILE_NAME);
+       LastContactID=file.getLastContactID();
     }
 }
 

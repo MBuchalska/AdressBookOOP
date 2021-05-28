@@ -146,7 +146,7 @@
 +AddNewContact(int OwnerID, int TotalNumberOfContacts, int LastContactID, string ContactFileName); void
 +PrintAllContactsOfLoggedUser(); void
 +ChangeContactData(string ContactFileName);void
-+DeleteContact(int TotalNumberOfContacts,string ContactFileName); int
++DeleteContact(int TotalNumberOfContacts,string ContactFileName); void
 +FindContactByFirstName(); void
 +FindContactByLastName(); void
 </panel_attributes>
